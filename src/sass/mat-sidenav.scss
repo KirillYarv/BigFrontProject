@@ -1,0 +1,53 @@
+@use './theme/colors.scss';
+@use './theme/typography.scss';
+
+.mat-sidenav-container
+{
+    flex-grow: 1;
+    background-color: inherit;
+    color: inherit;
+}
+.mat-sidenav
+{
+    @media (max-width:720px)
+    {
+        width: auto;
+    }
+    padding:12px;
+    width: 360px;
+    border: none;
+    background-color: colors.surface();
+    color: colors.on-surface-variant();  
+}
+.mat-mdc-list-item
+{
+    
+    @media (max-width:720px)
+    {
+        border-radius: 50%;
+        padding-inline: 16px 16px !important;
+        height: 56px;
+        width: 56px;
+    }
+    height: 56px !important;
+    padding-inline: 16px 24px !important;
+    border-radius: 25px;
+    .mat-mdc-list-item-unscoped-content
+    {
+        @include typography.label-large;
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        align-items: center;
+        color: inherit;
+    }
+    &.mat-mdc-list-item-interactive::before
+    {
+        background-color: currentColor;
+    }
+    &.mat-mdc-list-item-active
+    {
+        background-color: colors.secondary-container();
+        color: colors.on-secondary-container();
+    }
+}

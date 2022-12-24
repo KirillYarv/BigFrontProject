@@ -1,0 +1,68 @@
+@mixin apply($code) {
+  font-family: var(--md-sys-typescale-#{$code}-font-family-name);
+  font-style: var(--md-sys-typescale-#{$code}-font-family-style);
+  font-weight: var(--md-sys-typescale-#{$code}-font-weight);
+  font-size: var(--md-sys-typescale-#{$code}-font-size);
+  letter-spacing: var(--md-sys-typescale-#{$code}-letter-spacing);
+  line-height: var(--md-sys-typescale-#{$code}-line-height);
+}
+
+@mixin display-large{
+  @include apply(display-large);
+}
+
+@mixin display-medium{
+  @include apply(display-medium);
+}
+
+@mixin display-small{
+  @include apply(display-small);
+}
+
+@mixin headline-large{
+  @include apply(headline-large);
+}
+
+@mixin headline-medium{
+  @include apply(headline-medium);
+}
+
+@mixin headline-small{
+  @include apply(headline-small);
+}
+
+@mixin body-large{
+  @include apply(body-large);
+}
+
+@mixin body-medium{
+  @include apply(body-medium);
+}
+
+@mixin body-small{
+  @include apply(body-small);
+}
+
+@mixin label-large{
+  @include apply(label-large);
+}
+
+@mixin label-medium{
+  @include apply(label-medium);
+}
+
+@mixin label-small{
+  @include apply(label-small);
+}
+
+@mixin title-large{
+  @include apply(title-large);
+}
+
+@mixin title-medium{
+  @include apply(title-medium);
+}
+
+@mixin title-small{
+  @include apply(title-small);
+}

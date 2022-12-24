@@ -1,0 +1,123 @@
+@function color($code) {
+  @return var(--md-sys-color-#{$code});
+}
+
+@function primary() {
+  @return color(primary);
+}
+
+@function on-primary() {
+  @return color(on-primary);
+}
+
+@function primary-container() {
+  @return color(primary-container);
+}
+
+@function on-primary-container() {
+  @return color(on-primary-container);
+}
+
+@function secondary() {
+  @return color(secondary);
+}
+
+@function on-secondary() {
+  @return color(on-secondary);
+}
+
+@function secondary-container() {
+  @return color(secondary-container);
+}
+
+@function on-secondary-container() {
+  @return color(on-secondary-container);
+}
+
+@function tertiary() {
+  @return color(tertiary);
+}
+
+@function on-tertiary() {
+  @return color(on-tertiary);
+}
+
+@function tertiary-container() {
+  @return color(tertiary-container);
+}
+
+@function on-tertiary-container() {
+  @return color(on-tertiary-container);
+}
+
+@function error() {
+  @return color(error);
+}
+
+@function on-error() {
+  @return color(on-error);
+}
+
+@function error-container() {
+  @return color(error-container);
+}
+
+@function on-error-container() {
+  @return color(on-error-container);
+}
+
+@function background() {
+  @return color(background);
+}
+
+@function on-background() {
+  @return color(on-background);
+}
+
+@function surface() {
+  @return color(surface);
+}
+
+@function on-surface() {
+  @return color(on-surface);
+}
+
+@function surface-variant() {
+  @return color(surface-variant);
+}
+
+@function on-surface-variant() {
+  @return color(on-surface-variant);
+}
+
+@function outline() {
+  @return color(outline);
+}
+
+@function inverse-surface() {
+  @return color(inverse-surface);
+}
+
+@function inverse-on-surface() {
+  @return color(inverse-on-surface);
+}
+
+@function inverse-primary() {
+  @return color(inverse-primary);
+}
+
+@function shadow() {
+  @return color(shadow);
+}
+
+@function surface-tint() {
+  @return color(surface-tint);
+}
+
+@function outline-variant() {
+  @return color(outline-variant);
+}
+
+@function scrim() {
+  @return color(scrim);
+}
