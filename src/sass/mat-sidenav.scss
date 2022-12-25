@@ -19,35 +19,45 @@
     background-color: colors.surface();
     color: colors.on-surface-variant();  
 }
-.mat-mdc-list-item
-{
-    
-    @media (max-width:720px)
+
+.mat-drawer-inner-container
+{    
+    display: grid;
+    .mat-mdc-list-item
     {
-        border-radius: 50%;
-        padding-inline: 16px 16px !important;
-        height: 56px;
-        width: 56px;
+        @media (max-width:720px)
+        {
+            border-radius: 50%;
+            padding-inline: 16px 16px !important;
+            height: 56px;
+            width: 56px;
+        }
+        height: 56px !important;
+        padding-inline: 16px 24px !important;
+        border-radius: 25px;
+        .mat-mdc-list-item-unscoped-content
+        {
+            @include typography.label-large;
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            align-items: center;
+            color: inherit;
+        }
+        &.mat-mdc-list-item-interactive::before
+        {
+            background-color: currentColor;
+        }
+        &.mat-mdc-list-item-active
+        {
+            background-color: colors.secondary-container();
+            color: colors.on-secondary-container();
+        }
     }
-    height: 56px !important;
-    padding-inline: 16px 24px !important;
-    border-radius: 25px;
-    .mat-mdc-list-item-unscoped-content
+    .logOut
     {
-        @include typography.label-large;
         display: flex;
-        flex-direction: row;
-        gap: 12px;
-        align-items: center;
-        color: inherit;
+        align-items: flex-end;
     }
-    &.mat-mdc-list-item-interactive::before
-    {
-        background-color: currentColor;
-    }
-    &.mat-mdc-list-item-active
-    {
-        background-color: colors.secondary-container();
-        color: colors.on-secondary-container();
-    }
+
 }

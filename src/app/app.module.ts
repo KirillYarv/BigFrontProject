@@ -12,13 +12,16 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { Page1Component } from './pages/page1/page1.component';
 import { Page2Component } from './pages/page2/page2.component';
-
+import { LoginComponent } from './auth/login/login.component';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     Page1Component,
-    Page2Component
+    Page2Component,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,9 @@ import { Page2Component } from './pages/page2/page2.component';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

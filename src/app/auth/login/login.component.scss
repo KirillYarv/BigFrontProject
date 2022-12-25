@@ -1,0 +1,12 @@
+:host
+{
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+.login1, .login
+{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}

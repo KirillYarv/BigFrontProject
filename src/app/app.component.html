@@ -1,6 +1,6 @@
 <!-- Creates a layout with a left-positioned sidenav and explicit content. -->
 <mat-sidenav-container>
-    <mat-sidenav mode="side" [opened]="isOpened">
+    <mat-sidenav mode="side" [opened]="authService.isAuth">
        
         <mat-nav-list>
             <a mat-list-item routerLink="page-1" routerLinkActive="mat-mdc-list-item-active" [routerLinkActiveOptions]="{exact: true}">
@@ -12,11 +12,17 @@
                 {{messege}}
             </a>
         </mat-nav-list>
-            
-        
+        <mat-nav-list class= "logOut">
+
+        <a mat-list-item (click)="loginOut()">
+            <mat-icon>person</mat-icon>
+            {{logout}}
+        </a>
+        </mat-nav-list>
+
     </mat-sidenav>
     <mat-sidenav-content>
-        <button mat-raised-button color="warn" (click)="openCloseSidenav()"> test this button!</button>
+
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
