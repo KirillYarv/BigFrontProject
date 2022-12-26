@@ -24,5 +24,9 @@ export class AuthService {
     console.log(login.password);
     this.isAuth = true;
   }
+  public loginOut()
+  {
+    this.isAuth = false;
+  }
 
 }

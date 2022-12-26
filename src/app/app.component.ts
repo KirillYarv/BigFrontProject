@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
   readonly messege_c='Сообщения';
   readonly logout_c = 'Logout';
   
-  public isOpened: boolean = true;
   screenWidth: number | undefined;
 
   constructor(private iconRegistry: MatIconRegistry, public authService : AuthService)
@@ -48,12 +47,8 @@ export class AppComponent implements OnInit {
     this.iconRegistry.setDefaultFontSetClass("material-icons-outlined");
   }
 
-  public openCloseSidenav()
-  {
-    this.isOpened = !this.isOpened;
-  }
   public loginOut()
   {
-    this.authService.isAuth = false;
+    this.authService.loginOut();
   }
 }
