@@ -37,6 +37,13 @@ $BigFrontProject-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($BigFrontProject-theme);
 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' var(--symbol-fill,0),
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
 /* You can add global styles to this file, and also import other style files */
 :root
 {
@@ -54,3 +61,4 @@ body
   color: colors.on-background();
 }
 @import "sass/mat-sidenav.scss";
+@import "sass/mat-dialog.scss";

@@ -13,10 +13,10 @@ export class AppComponent implements OnInit {
   
   title = 'BigFrontProject';
   my ='Моя страница';
-  messege='Сообщения';
+  messege='Книги';
   logout = 'Logout';
   readonly my_c ='Моя страница';
-  readonly messege_c='Сообщения';
+  readonly messege_c='Книги';
   readonly logout_c = 'Logout';
   
   screenWidth: number | undefined;
@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit()
   {
-    this.iconRegistry.setDefaultFontSetClass("material-icons-outlined");
+    this.iconRegistry.setDefaultFontSetClass("material-symbols-outlined");
   }
 
   public loginOut()

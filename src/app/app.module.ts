@@ -10,18 +10,25 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
-import { Page1Component } from './pages/page1/page1.component';
-import { Page2Component } from './pages/page2/page2.component';
-import { LoginComponent } from './auth/login/login.component';
 import {MatInputModule} from '@angular/material/input';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogModule } from '@angular/material/dialog';
+
+//new component
+import { Page1Component } from './pages/page1/page1.component';
+import { BooksComponent } from './pages/books/books.component';
+import { LoginComponent } from './auth/login/login.component';
+
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { DialogModule } from '@angular/cdk/dialog';
+import { AuthorPipe } from './pipes/author.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     Page1Component,
-    Page2Component,
-    LoginComponent
+    BooksComponent,
+    LoginComponent,
+    AuthorPipe
   ],
   imports: [
     BrowserModule,
@@ -34,6 +41,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,31 @@
+<div class="content">
+    <div class = "title">
+        <h1>Книги!</h1>
+        
+            <ng-container *ngIf="buttonAddmessege; then thenTemplate; else elseTemplate"></ng-container>
+            <ng-template #thenTemplate>
+                <div class="title-button">
+                    <button mat-mini-fab color="primary" (click)="add()"> <mat-icon>add</mat-icon></button>
+                </div>
+            </ng-template>
+            <ng-template #elseTemplate>
+                <div class="title-button">
+                    <button mat-raised-button color="primary" (click)="add()"> <mat-icon>add</mat-icon> Добавить книгу</button>
+                </div>
+            </ng-template>
+    </div>
+    <p > 
+        <mat-nav-list *ngFor="let book of bookService.books | async">
+            <div class="list-item">
+                <div class="text-section">
+                    <p>{{book.name}}</p>
+                    <p>{{book.author | author}}</p>
+                </div>
+                <div class="second-section">
+                    <button mat-list-item (click)="edit(book)"><mat-icon>edit</mat-icon> </button>
+                    <button mat-list-item (click)="remove(book.id)"><mat-icon>delete</mat-icon> </button> 
+                </div>
+            </div>
+        </mat-nav-list>
+    </p>
+</div>

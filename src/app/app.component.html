@@ -7,15 +7,15 @@
                 <mat-icon>home</mat-icon>
                 {{my}}
             </a>
-            <a mat-list-item routerLink="page-2" routerLinkActive="mat-mdc-list-item-active" [routerLinkActiveOptions]="{exact: true}">
-                <mat-icon>mode_comment</mat-icon>
+            <a mat-list-item routerLink="books" routerLinkActive="mat-mdc-list-item-active" [routerLinkActiveOptions]="{exact: true}">
+                <mat-icon>menu_book</mat-icon>
                 {{messege}}
             </a>
         </mat-nav-list>
         <mat-nav-list class= "logOut">
 
         <a mat-list-item (click)="loginOut()">
-            <mat-icon>person</mat-icon>
+            <mat-icon>logout</mat-icon>
             {{logout}}
         </a>
         </mat-nav-list>

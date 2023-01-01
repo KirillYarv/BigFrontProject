@@ -1,0 +1,30 @@
+<div class="content">
+    <h2 mat-dialog-title>{{titleMessege}} книги</h2>
+    <div mat-dialog-content>
+
+        <form [formGroup]="bookForm" class="books">
+            <mat-form-field>
+                <mat-label>Имя автора</mat-label>
+                <input type="firstName" matInput formControlName="firstName">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Фамилия автора</mat-label>
+                <input type="lastName" matInput formControlName="lastName">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Название книги</mat-label>
+                <input type="name" matInput formControlName="name">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Количество страниц</mat-label>
+                <input type="countPages" matInput formControlName="countPages">
+            </mat-form-field>
+        </form>
+    </div>
+    <div mat-dialog-actions class="mat-dialog-actions">
+      <button mat-button [disabled]="bookForm.invalid" (click)="add()">{{buttonMessege}}</button>
+      <button mat-button (click)="close()">Отмена</button>
+
+    </div>
+</div>

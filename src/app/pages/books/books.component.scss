@@ -1,0 +1,115 @@
+@use '../../../sass/theme/typography.scss';
+:root
+{
+    --font-size:10px;
+    --margin: 20px;
+    --height-list-item: 42px;
+}
+
+@media (max-width: 720px) 
+{
+    .content
+    {
+        --margin: 20px;
+    }
+    .list-item
+    {
+        --height-list-item: auto;
+    }
+}
+@media (min-width: 720px) 
+{
+    .content
+    {
+        --margin: 40px;
+    }
+    .list-item
+    {
+        --height-list-item: 42px;
+    }
+}
+.content
+{
+    @include typography.label-large;
+    color: inherit;
+
+    margin: var(--margin);
+}
+.title
+{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    h1
+    {
+        margin: 0;
+    }
+    .title-button
+    {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+.mat-mdc-nav-list
+{
+    padding: 0;
+}
+.list-item
+{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding-inline: 16px 24px;
+    padding-block: 8px;
+    height: var(--height-list-item);
+    gap:8px;
+
+    p
+    {
+        font-size: var(--font-size);
+    }
+    .text-section
+    {
+
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        justify-content: center;
+
+        p:first-child
+        {
+            font-size: 20px;
+            margin: 0;
+        }
+        p:last-child
+        {
+            font-size: 12px;
+            margin: 0;
+        }
+    }
+    .second-section
+    {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .mat-mdc-list-item
+    {
+        border-radius: 50%;
+        padding-inline: 8px 8px !important;
+        height: 42px;
+        width: 42px; 
+        border: 0; 
+    }
+    .count-pages
+    {
+        display: flex;
+        font-size: 10px;
+        align-items: center;
+    } 
+    .mat-mdc-list-item-interactive::before
+    {
+        background-color: currentColor;
+    }
+}
