@@ -19,9 +19,10 @@
             <div class="list-item">
                 <div class="text-section">
                     <p>{{book.name}}</p>
-                    <p>{{book.author | author}}</p>
+                    <p>{{book.author | author}}  <span *ngIf="buttonAddmessege">{{book.countPages}}</span></p>
                 </div>
                 <div class="second-section">
+                    <p *ngIf="!buttonAddmessege">{{book.countPages}}</p>
                     <button mat-list-item (click)="edit(book)"><mat-icon>edit</mat-icon> </button>
                     <button mat-list-item (click)="remove(book.id)"><mat-icon>delete</mat-icon> </button> 
                 </div>
