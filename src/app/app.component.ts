@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   
   @HostListener('window:resize', ['$event'])
     getScreenSize() {
-      if(window.innerWidth<720)
+      if(window.innerWidth<940)
       {
         this.my = '';
         this.messege = '';

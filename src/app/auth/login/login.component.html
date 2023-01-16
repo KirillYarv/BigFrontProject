@@ -16,7 +16,9 @@
       </mat-form-field>
       <mat-error *ngIf="password.errors && (password.touched)">Password is required</mat-error>
     </div>
+    <mat-error *ngIf="isLoginError">This login or password is wrong</mat-error>
   </form>
 
   <button mat-raised-button color="primory" [disabled]="loginForm.invalid" (click)="login()"> Login</button>
+  <button mat-raised-button color="primory" routerLink="../../auth/register"> Register page</button>
 </div>

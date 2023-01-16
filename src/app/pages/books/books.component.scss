@@ -6,7 +6,7 @@
     --height-list-item: 42px;
 }
 
-@media (max-width: 720px) 
+@media (max-width: 1440px) 
 {
     .content
     {
@@ -17,7 +17,7 @@
         --height-list-item: auto;
     }
 }
-@media (min-width: 720px) 
+@media (min-width: 1440px) 
 {
     .content
     {

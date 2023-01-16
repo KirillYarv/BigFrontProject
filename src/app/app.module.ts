@@ -21,6 +21,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DialogModule } from '@angular/cdk/dialog';
 import { AuthorPipe } from './pipes/author.pipe';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './auth/register/register.component';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,11 @@ import { AuthorPipe } from './pipes/author.pipe';
     Page1Component,
     BooksComponent,
     LoginComponent,
-    AuthorPipe
+    AuthorPipe,
+    RegisterComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -43,7 +48,10 @@ import { AuthorPipe } from './pipes/author.pipe';
     ReactiveFormsModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: 
+  [
+    {provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

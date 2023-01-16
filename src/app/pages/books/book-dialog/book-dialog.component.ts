@@ -22,7 +22,7 @@ export class BookDialogComponent implements OnInit
     firstName: new FormControl('',[Validators.required]),
     lastName: new FormControl('',[Validators.required]),
     name:new FormControl('',[Validators.required]),
-    countPages:new FormControl('',[Validators.required]),
+    //countPages:new FormControl('',[Validators.required]),
   });
 
   public get firstName():FormControl
@@ -37,10 +37,10 @@ export class BookDialogComponent implements OnInit
   {
     return this.bookForm.get("name") as FormControl;
   }
-  public get countPages():FormControl
-  {
-    return this.bookForm.get("countPages") as FormControl;
-  }
+  // public get countPages():FormControl
+  // {
+  //   return this.bookForm.get("countPages") as FormControl;
+  // }
 
   ngOnInit(): void 
   {
@@ -49,7 +49,7 @@ export class BookDialogComponent implements OnInit
       this.firstName.setValue(this.data.author.firstName);
       this.lastName.setValue(this.data.author.lastName);
       this.name.setValue(this.data.name);
-      this.countPages.setValue(this.data.countPages);
+      //this.countPages.setValue(this.data.countPages);
 
       this._buttonMessege = "Изменить";
       this._titleMessege ="Изменение";
@@ -72,7 +72,7 @@ export class BookDialogComponent implements OnInit
         id: this.data.id,
         author: {firstName: this.firstName.value, lastName: this.lastName.value},
         name: this.name.value,
-        countPages: this.countPages.value
+        //countPages: this.countPages.value
       }
       this.dialog.close(this.data);    
     }
@@ -82,7 +82,7 @@ export class BookDialogComponent implements OnInit
         id: 0,
         author: {firstName: this.firstName.value, lastName: this.lastName.value},
         name: this.name.value,
-        countPages: this.countPages.value
+        //countPages: this.countPages.value
       }
   
       this.dialog.close(this.data);

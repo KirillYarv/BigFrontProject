@@ -9,7 +9,7 @@
 }
 .mat-sidenav
 {
-    @media (max-width:720px)
+    @media (max-width:940px)
     {
         width: auto;
     }
@@ -25,7 +25,7 @@
     display: grid;
     .mat-mdc-list-item
     {
-        @media (max-width:720px)
+        @media (max-width:940px)
         {
             border-radius: 50%;
             padding-inline: 16px 16px !important;

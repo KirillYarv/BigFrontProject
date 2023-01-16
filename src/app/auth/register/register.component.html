@@ -1,0 +1,30 @@
+<div class="register">
+    <form [formGroup]="registerForm" class="register1">
+        <div class="name">
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input type="name" matInput formControlName="name">
+            </mat-form-field>
+            <mat-error *ngIf="name.hasError('required') && name.touched">Name is required</mat-error>
+        </div>
+        <div class="emai">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="email">
+            </mat-form-field>
+            <mat-error *ngIf="email.hasError('required') && email.touched">Email is required</mat-error>
+            <mat-error *ngIf="email.hasError('email')">Email has wrong format</mat-error>
+        </div>
+  
+        <div class="password">
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password">
+          </mat-form-field>
+          <mat-error *ngIf="password.errors && (password.touched)">Password is required</mat-error>
+        </div>
+    </form>
+  
+    <button mat-raised-button color="primory" [disabled]="registerForm.invalid" (click)="register()"> Register</button>
+    <button mat-raised-button color="primory" routerLink="../../auth/login"> Login page</button>
+  </div>

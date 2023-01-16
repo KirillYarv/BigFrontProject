@@ -2,13 +2,16 @@ import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginModel } from 'src/app/models/login.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent 
+{
+  isLoginError: boolean = false;
 
   public loginForm = new FormGroup({
     email: new FormControl('',[Validators.required, Validators.email]),
@@ -24,11 +27,14 @@ export class LoginComponent {
     return this.loginForm.get("password") as FormControl;
   }
 
-  constructor(public authService: AuthService){}
+  constructor(private router: Router, public authService: AuthService){}
 
   public login()
   {
     let model = new LoginModel(this.email.value,this.password.value);
-    this.authService.login(model);
+    this.authService.login(model).subscribe(
+    result => {this.router.navigate(['/page-1'])},
+    error => {this.isLoginError = true;}
+    );
   }
 }

@@ -6,11 +6,13 @@
             <ng-template #thenTemplate>
                 <div class="title-button">
                     <button mat-mini-fab color="primary" (click)="add()"> <mat-icon>add</mat-icon></button>
+                    <button mat-mini-fab color="warn" (click)="generate()"> <mat-icon>generating_tokens</mat-icon></button>
                 </div>
             </ng-template>
             <ng-template #elseTemplate>
                 <div class="title-button">
                     <button mat-raised-button color="primary" (click)="add()"> <mat-icon>add</mat-icon> Добавить книгу</button>
+                    <button mat-raised-button color="warn" (click)="generate()"> <mat-icon>generating_tokens</mat-icon> Сгенерировать 10 книг</button>
                 </div>
             </ng-template>
     </div>
@@ -19,10 +21,11 @@
             <div class="list-item">
                 <div class="text-section">
                     <p>{{book.name}}</p>
-                    <p>{{book.author | author}}  <span *ngIf="buttonAddmessege">{{book.countPages}}</span></p>
+                    <p>
+                        {{book.author}}  
+                    </p>
                 </div>
                 <div class="second-section">
-                    <p *ngIf="!buttonAddmessege">{{book.countPages}}</p>
                     <button mat-list-item (click)="edit(book)"><mat-icon>edit</mat-icon> </button>
                     <button mat-list-item (click)="remove(book.id)"><mat-icon>delete</mat-icon> </button> 
                 </div>

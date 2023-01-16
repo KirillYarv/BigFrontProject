@@ -1,16 +1,19 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { BookDialogComponent } from './book-dialog/book-dialog.component';
-import { IBook } from 'src/app/interfaces/IBook';
+import { IBook, IBook1 } from 'src/app/interfaces/IBook';
 
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.scss']
 })
-export class BooksComponent {
-
+export class BooksComponent implements OnInit
+{
+  ngOnInit(): void {
+    this.bookService.getBooks();
+  }
   private _buttonAddmessege: boolean =false;
   
   public get buttonAddmessege() : boolean {return this._buttonAddmessege;}
@@ -31,7 +34,10 @@ export class BooksComponent {
       this._buttonAddmessege = false;
     }
   }
-
+  generate()
+  {
+    this.bookService.generate(10);
+  }
   add(): void 
   {
     const dialogRef = this.dialog.open(BookDialogComponent);
@@ -42,8 +48,11 @@ export class BooksComponent {
       }
     });
   }
-  edit(book: IBook)
+  edit(book1: IBook1)
   {
+    let authorSplit = book1.author.split(" ");
+    let book :IBook = {id:book1.id, author: {firstName: authorSplit[1], lastName: authorSplit[0]}, name:book1.name};
+    
     const dialogRef = this.dialog.open(BookDialogComponent, {
      data:book});
 

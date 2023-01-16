@@ -5,5 +5,10 @@ export interface IBook
     id: number;
     author:IAuthor;
     name:string;
-    countPages:number;
+}
+export interface IBook1 
+{
+    id: number;
+    author:string;
+    name:string;
 }
