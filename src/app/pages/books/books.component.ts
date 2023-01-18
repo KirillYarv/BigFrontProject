@@ -25,7 +25,7 @@ export class BooksComponent implements OnInit
 
   @HostListener('window:resize', ['$event'])
   getScreenSize() {
-    if(window.innerWidth<540)
+    if(window.innerWidth<600)
     {
       this._buttonAddmessege = true
     }
