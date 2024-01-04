@@ -1,0 +1,121 @@
+<!-- <div class="page"> -->
+<div class="interaction-s">
+    <h4>Расписание</h4>
+    <ng-container *ngIf="!_buttonAddmessege; else elseB">
+        <button mat-raised-button class="add-button" color="warn" (click)="add()"><mat-icon>add</mat-icon> Добавить передмет</button>
+        <button mat-raised-button class="edit-button" color="primary" (click)="editSession()"><mat-icon>edit</mat-icon>Изменить даты семестра</button>
+        
+    </ng-container>
+    <ng-template #elseB>
+        <button mat-mini-fab class="add-button" color="warn" (click)="add()"><mat-icon>add</mat-icon></button>
+        <button mat-mini-fab class="edit-button" color="primary" (click)="editSession()"><mat-icon>edit</mat-icon></button>
+    </ng-template>
+    
+
+    <div *ngFor="let item of sessionService.sessions|async">
+        <div *ngIf="item&&!isEdit; else elseChange">
+            {{changeToFalse(item)}}
+        </div>
+        <ng-template #elseChange>
+            {{changeToTrue()}}
+        </ng-template>
+        
+    </div>
+</div>
+
+<div class="session" *ngIf="isNonDisable; else elseTemplate">
+    <form [formGroup]="sessionForm" class="session-form">
+
+        <mat-form-field class="range-data-picker">
+            <mat-label>начало и конец семестра</mat-label>
+            <mat-date-range-input [formGroup]="sessionForm" [rangePicker]="picker">
+              <input matStartDate formControlName="start" placeholder="Начало семестра"formControlName="dataStartSemester">
+              <input matEndDate formControlName="end" placeholder="Конец семестра" formControlName="dataEndSemester">
+            </mat-date-range-input>
+            
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          
+            
+        </mat-form-field>
+
+        <mat-form-field class="session-picker">
+
+            <mat-label>Начало сессии</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="dataStartSession">
+            
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        
+        <div mat-dialog-actions class="button-actions">
+            <button mat-raised-button [disabled]="sessionForm.invalid" color="primary" (click)="addSession()">Добавить</button>
+            <button mat-raised-button [disabled]="!isEdit" color="primary" (click)="close()">Отмена</button>
+        </div>
+    </form>
+</div>
+<ng-template #elseTemplate>
+<div class="schedule">
+
+        <table>
+            <tr class="days">
+                <th> </th>
+                <th *ngFor="let item of allData">{{item}}</th>
+            </tr>
+            <tr class="row" *ngFor="let time of _time">
+                <td>{{time.start.getHours()}}:{{time.start.getMinutes()}}-{{time.end.getHours()}}:{{time.end.getMinutes()}}</td>
+                <td *ngFor="let item of allTypeData">
+                    <div class="lesson">
+                        {{getCurrentSchedule(item,time)}}
+                        <ng-container *ngIf="_shedule.type===_type[0]">
+                            <div class="schedule-lection">
+                                <p>{{_shedule.name}}</p>
+                                <p>{{_shedule.type}}</p>
+                                <p>{{_shedule.time}}</p>
+                                <p>{{_shedule.place}}</p>
+                                <p>{{_shedule.teacher}}</p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="_shedule.type===_type[1]">
+                            <div class="schedule-seminar">
+                                <p>{{_shedule.name}}</p>    
+                                <p>{{_shedule.type}}</p>
+                                <p>{{_shedule.time}}</p>
+                                <p>{{_shedule.place}}</p>
+                                <p>{{_shedule.teacher}}</p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="_shedule.type===_type[2]">
+                            <div class="schedule-laba">
+                                <p>{{_shedule.name}}</p>
+                                <p>{{_shedule.type}}</p>
+                                <p>{{_shedule.time}}</p>
+                                <p>{{_shedule.place}}</p>
+                                <p>{{_shedule.teacher}}</p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="_shedule.type===_type[3]||_shedule.type===_type[4]||_shedule.type===_type[5]||_shedule.type===_type[6]">
+                            <div class="schedule-exam">
+                                <p>{{_shedule.name}}</p>
+                                <p>{{_shedule.type}}</p>
+                                <p>{{_shedule.time}}</p>
+                                <p>{{_shedule.place}}</p>
+                                <p>{{_shedule.teacher}}</p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="_shedule.type===_type[7]">
+                            <div class="schedule-dr">
+                                <p>{{_shedule.name}}</p>
+                                <p>{{_shedule.type}}</p>
+                                <p>{{_shedule.time}}</p>
+                                <p>{{_shedule.place}}</p>
+                                <p>{{_shedule.teacher}}</p>
+                            </div>
+                        </ng-container>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</ng-template>
+<!-- </div> -->

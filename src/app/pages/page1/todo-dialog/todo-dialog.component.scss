@@ -1,0 +1,25 @@
+.todo
+{
+    display: flex;
+    flex-direction: column;
+    gap:24px;
+}
+.content
+{
+    border-radius: 50px !important;
+    padding: 24px;
+    h2
+    {
+        margin-bottom: 16px;
+    }
+}
+h1,h2,h3
+{
+    margin: 0;
+}
+.mat-dialog-actions
+{
+    display: flex;
+    margin-top: 24px;
+    gap: 8px;
+}

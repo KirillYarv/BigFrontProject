@@ -1,0 +1,22 @@
+.TDS
+{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    //overflow: hidden;
+    height: 100%;
+}
+.todo-page
+{
+    position: relative;
+    margin: 8px;
+    width: 300px;
+    height: 680px;
+    
+}
+.schedule-page
+{
+    margin: 8px;
+    
+    overflow-x: auto;
+    overflow-y: hidden;
+}

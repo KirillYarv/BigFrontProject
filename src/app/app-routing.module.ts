@@ -27,6 +27,7 @@ const routes: Routes = [
     path: "page-1",
     component: Page1Component,
     canActivate: [AuthGuard],
+    loadChildren: ()=> import("./pages/page1/page1/page1.module").then((n) => n.Page1Module)
   },
   {
     path: "books",

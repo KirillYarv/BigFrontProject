@@ -1,0 +1,189 @@
+@use '../../../../sass/theme/typography.scss';
+@use '../../../../sass/theme/theme.scss';
+@use '../../../../sass/theme/colors.scss';
+
+//#203329
+
+$lesson-block-color: #2A3319;
+$exam-block-color:#ca202e;
+$lection-block-color:#148175;
+$seminar-block-color:#2fab1b;
+$laba-block-color:#cf6b21;
+$dr-block-color:#3f51b5;
+//rgba(0, 0, 0, 0.87)
+
+.page
+{
+    width: auto;
+    //flex-grow: 1;
+}
+
+.interaction-s
+{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.add-button{
+    margin-block: 8px;
+    margin-left: auto;
+    //border-radius: 50%;
+    //padding-inline: 8px 8px !important;
+    //height: 42px;
+    //width: 42px; 
+    border: 0;    
+}
+.edit-button{
+    margin-block: 8px;
+    //border-radius: 50%;
+    //padding-inline: 8px 8px !important;
+    //height: 42px;
+    //width: 42px; 
+    border: 0;    
+}
+.session
+{
+    height: 91.3%;
+    width: 100%;
+    border-radius: 20px;
+    border: 5px;
+    background-color: $lesson-block-color;
+}
+.session-form
+{
+    gap: 20px;
+    height: 91.3%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+
+}
+.range-data-picker
+{
+    color: rgba(0, 0, 0, 0.87) !important;
+}
+.button-actions
+{
+    gap: 20px;
+}
+
+.schedule
+{
+    height: 91.3%;
+    //width: 100%;
+    border: 5px;
+    background-color: colors.background();
+    overflow: auto;
+}
+table
+{
+    width: 100%;
+}
+tr
+{
+    td:first-child
+    {
+        position: sticky;
+        width: 20px;
+        height: 100px;
+        background-color: #203329;
+    }
+}
+th
+{
+    background-color: #203329;
+}
+.row
+{
+    width: 100px;
+}
+.days
+{
+    height: 20px;
+}
+td
+{
+    background-color: $lesson-block-color;
+    p
+    {
+        font-size: 13px;
+        font-weight: bold;
+        margin-block: 0;
+        margin-inline: 10px;
+        text-align: center;
+    }
+    p:first-child
+    {
+        margin-top: 10px;
+    }
+    p:last-child
+    {
+        margin-bottom: 10px;
+    }
+}
+.lesson
+{
+    width: 150px;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.schedule-exam
+{
+    gap: 15px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    background-color: $exam-block-color;
+}
+.schedule-lection
+{
+    gap: 15px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    background-color: $lection-block-color;   
+}
+.schedule-seminar
+{
+    gap: 15px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    background-color: $seminar-block-color;
+}
+.schedule-laba
+{
+    gap: 15px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    background-color: $laba-block-color;
+}
+.schedule-dr
+{
+    gap: 15px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    background-color: $dr-block-color;
+}

@@ -18,12 +18,18 @@ import { Page1Component } from './pages/page1/page1.component';
 import { BooksComponent } from './pages/books/books.component';
 import { LoginComponent } from './auth/login/login.component';
 
+
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DialogModule } from '@angular/cdk/dialog';
 import { AuthorPipe } from './pipes/author.pipe';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './auth/register/register.component';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { Page1Module } from './pages/page1/page1/page1.module';
+import { BookModule } from './pages/books/book/book.module';
+import { ScheduleDialogComponent } from './pages/page1/schedule-dialog/schedule-dialog.component';
+import { DataTimePipe } from './pipes/data-time.pipe';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +38,9 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     BooksComponent,
     LoginComponent,
     AuthorPipe,
-    RegisterComponent
+    RegisterComponent,
+    DataTimePipe,
+    
   ],
   imports: [
     HttpClientModule,
@@ -46,7 +54,9 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    Page1Module,
+    BookModule
   ],
   providers: 
   [

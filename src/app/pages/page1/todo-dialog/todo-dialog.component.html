@@ -1,0 +1,26 @@
+<div class="content">
+    <h2 mat-dialog-title>{{titleMessege}} задачу</h2>
+    <div mat-dialog-content>
+
+        <form [formGroup]="todoForm" class="todo">
+            <mat-form-field>
+                <mat-label>Задача</mat-label>
+                <input type="name" matInput formControlName="name">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Какая пара</mat-label>
+                <input type="lesson" matInput formControlName="lesson">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Выбрать дату</mat-label>
+                <input matInput type="datetime-local" formControlName="dataPicker">
+            </mat-form-field>
+        </form>
+    </div>
+    <div mat-dialog-actions class="mat-dialog-actions">
+      <button mat-button [disabled]="todoForm.invalid" (click)="add()">{{buttonMessege}}</button>
+      <button mat-button (click)="close()">Отмена</button>
+
+    </div>
+</div>

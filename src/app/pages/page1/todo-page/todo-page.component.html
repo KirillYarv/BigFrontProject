@@ -1,0 +1,36 @@
+<div class="todo-block">
+    <h4>Задачи</h4>
+    <button mat-mini-fab class="add-button" color="primary" (click)="add()"><mat-icon>add</mat-icon> </button>
+    
+</div>
+<div class="container">
+    <mat-nav-list *ngFor="let todo of todoService.todos | async">
+        <div class="list-item">
+            <div class="text-info">
+                <div class="text-section">
+                    <p>{{todo.name}}</p>
+                </div>
+                <hr>
+                <div class="lesson-section">
+                    
+                    <p>
+                        {{todo.lesson}}  
+                    </p>
+                    
+                </div>
+                
+                <div class="data-section">
+                    <hr>
+                    <p>
+                        {{todo.data}}  
+                    </p>
+                </div>
+            </div>
+            <div class="vert-line"></div>
+            <div class="interaction">
+                <button mat-list-item class="edit-button" (click)="edit(todo)"><mat-icon>edit</mat-icon> </button>
+                <button mat-list-item class="remove-button" (click)="remove(todo.id)"><mat-icon>delete</mat-icon> </button>
+            </div>
+        </div>
+    </mat-nav-list>
+</div>

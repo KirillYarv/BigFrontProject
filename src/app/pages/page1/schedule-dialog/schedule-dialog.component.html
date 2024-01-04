@@ -1,0 +1,73 @@
+<div class="content">
+    <h2 mat-dialog-title>{{titleMessege}} задачу</h2>
+    <div mat-dialog-content>
+
+        <form [formGroup]="scheduleForm" class="schedule">
+            <mat-form-field>
+                <mat-label>Название предмета</mat-label>
+                <input type="name" matInput formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Выберите тип занятий</mat-label>
+                <mat-select formControlName="type">
+                    <div  *ngFor="let type of types">
+                        <mat-option [value]="type.viewValue">{{type.viewValue}}</mat-option>
+                    </div>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Время</mat-label>
+                <input type="time" matInput formControlName="time">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Место</mat-label>
+                <input type="place" matInput formControlName="place">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>ФИО преподавателя</mat-label>
+                <input type="teacher" matInput formControlName="teacher">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Какая неделя</mat-label>
+                <mat-select formControlName="week" (ngModelChange)="handleChange()">
+                    <div *ngFor="let week of weeks">
+                        <mat-option [value]="week.viewValue">{{week.viewValue}}</mat-option>
+                    </div>
+                </mat-select>
+            </mat-form-field>
+            
+            <ng-container *ngIf="isNonDisable; else elseTemplate">
+                <mat-form-field>
+                    <mat-label>Дата пары</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="data_s">
+                    
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </ng-container>
+            <ng-template #elseTemplate>
+                <mat-form-field>
+                    <mat-label>Какой день недели</mat-label>
+                    <mat-select formControlName="data_s">
+                        <div *ngFor="let day of dayOfWeek">
+                            <mat-option [value]="day">{{day}}</mat-option>
+                        </div>
+                    </mat-select>
+                </mat-form-field>
+            </ng-template>
+            
+            
+            
+        </form>
+    </div>
+    <div mat-dialog-actions class="mat-dialog-actions">
+      <button mat-button [disabled]="scheduleForm.invalid" (click)="add()">{{buttonMessege}}</button>
+      <button mat-button (click)="close()">Отмена</button>
+
+    </div>
+</div>

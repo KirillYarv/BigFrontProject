@@ -1,0 +1,107 @@
+@use '../../../../sass/theme/typography.scss';
+$lesson-block-color: #203329;
+
+.todo-block
+{   
+    margin: 0;
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+.add-button{
+    margin-block: 8px;
+    margin-left: auto;
+    border-radius: 20px;
+    padding-inline: 8px 8px !important;
+    height: 42px;
+    width: 42px; 
+    border: 0; 
+    
+}
+.container
+{
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    height: 91.7%;
+    margin: 0;
+    width: 300px;
+    p
+    {
+        margin: 8px;
+    }
+}
+.vert-line
+{
+    border-left: 1px solid white;
+    height: auto;
+}
+.list-item
+{
+    border: 10px;
+    border-radius: 20px;
+    background-color: $lesson-block-color;
+    display: flex;
+    flex-direction: row;
+    
+
+}
+.mat-mdc-list-item
+{
+    border-radius: 50%;
+    padding-inline: 8px 8px !important;
+    height: 42px;
+    width: 42px; 
+    border: 0; 
+    margin-inline: 8px;
+    
+}
+.edit-button
+    {
+        margin-inline: 8px;
+        margin-top: 26.4px;
+    }
+    .remove-button
+    {
+        margin-inline: 8px;
+        margin-bottom: 26.4px;
+    }
+.text-info
+{
+    width: 80%;
+    height: 156.8px;
+}
+.text-section
+{
+    white-space: pre-line;
+    height:54.4px;
+    p
+    {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; // количество строк
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+.lesson-section
+{
+    height: 24.8px;
+    p
+    {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+.data-section
+{
+    height: 19.6px;
+}
+.interaction
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 20%;
+}
