@@ -42,4 +42,14 @@ export class TodoPageComponent {
   {
     this.todoService.remove(id);
   }
+  protected stringToInt(value:string):number
+  {
+    let month:number = +(value.toString().charAt(0)+value.toString().charAt(1));
+    let day:number = +(value.toString().charAt(3)+value.toString().charAt(4));
+    let year:number = +(value.toString().charAt(6)+value.toString().charAt(7)+value.toString().charAt(8)+value.toString().charAt(9));
+    let hour:number = +(value.toString().charAt(11)+value.toString().charAt(12));
+    let minute:number = +(value.toString().charAt(14)+value.toString().charAt(15));
+    
+    return +new Date(year,month-1,day,hour,minute)-+new Date();
+  }
 }

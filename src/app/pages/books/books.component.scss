@@ -36,6 +36,14 @@
     margin-inline: var(--margin);
     margin-block: 40px;
 }
+.add-button-book
+{
+    margin-block: 8px;
+    border-radius: 10px !important;
+    background-color: #193316;
+
+    border: 0;    
+}
 .title
 {
     display: grid;
@@ -98,7 +106,7 @@
 
     .mat-mdc-list-item
     {
-        border-radius: 50%;
+        border-radius: 10px;
         padding-inline: 8px 8px !important;
         height: 42px;
         width: 42px; 

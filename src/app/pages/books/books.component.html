@@ -5,14 +5,12 @@
             <ng-container *ngIf="buttonAddmessege; then thenTemplate; else elseTemplate"></ng-container>
             <ng-template #thenTemplate>
                 <div class="title-button">
-                    <button mat-mini-fab color="primary" (click)="add()"> <mat-icon>add</mat-icon></button>
-                    <button mat-mini-fab color="warn" (click)="generate()"> <mat-icon>generating_tokens</mat-icon></button>
+                    <button class="add-button-book" mat-mini-fab color="primary" (click)="add()"> <mat-icon>add</mat-icon></button>
                 </div>
             </ng-template>
             <ng-template #elseTemplate>
                 <div class="title-button">
-                    <button mat-raised-button color="primary" (click)="add()"> <mat-icon>add</mat-icon> Добавить книгу</button>
-                    <button mat-raised-button color="warn" (click)="generate()"> <mat-icon>generating_tokens</mat-icon> Сгенерировать 10 книг</button>
+                    <button class="add-button-book"mat-raised-button color="primary" (click)="add()"> <mat-icon>add</mat-icon> Добавить книгу</button>
                 </div>
             </ng-template>
     </div>

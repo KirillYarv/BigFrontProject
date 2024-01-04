@@ -10,13 +10,15 @@ $lection-block-color:#148175;
 $seminar-block-color:#2fab1b;
 $laba-block-color:#cf6b21;
 $dr-block-color:#3f51b5;
-//rgba(0, 0, 0, 0.87)
 
 .page
 {
     width: auto;
-    //flex-grow: 1;
 }
+
+.mat-button.mat-primary .mat-button-focus-overlay {
+    background-color: #193316;
+  }
 
 .interaction-s
 {
@@ -27,7 +29,9 @@ $dr-block-color:#3f51b5;
 .add-button{
     margin-block: 8px;
     margin-left: auto;
-    //border-radius: 50%;
+    border-radius: 10px !important;
+    background-color: #193316;
+
     //padding-inline: 8px 8px !important;
     //height: 42px;
     //width: 42px; 
@@ -35,7 +39,9 @@ $dr-block-color:#3f51b5;
 }
 .edit-button{
     margin-block: 8px;
-    //border-radius: 50%;
+    border-radius: 10px !important;
+    background-color: #266270;
+
     //padding-inline: 8px 8px !important;
     //height: 42px;
     //width: 42px; 
@@ -89,12 +95,12 @@ tr
         position: sticky;
         width: 20px;
         height: 100px;
-        background-color: #203329;
+        background-color: #22572B;
     }
 }
 th
 {
-    background-color: #203329;
+    background-color: #22572B;
 }
 .row
 {

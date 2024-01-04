@@ -21,18 +21,12 @@ export class BookService
   
   constructor(private httpClient:HttpClient) 
   { }
-
-  public generate(count:number) : void
-  {
-     this.httpClient.post<IBook1[]>(enviroment.spiUrl + 'books/generate/' + count, {}).subscribe(result=>{this.getBooks();});
-  }
   
   public getBooks(): void
   {
     this.httpClient.get<IBook1[]>(enviroment.spiUrl + 'books/', {}).subscribe(result=>{this._books=result});
   }
   
-
   add(book: IBook) : Observable<any>
   {
     let book1 :IBook1={id:book.id, author: this.author.transform(book.author),name:book.name};

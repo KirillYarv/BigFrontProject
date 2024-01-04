@@ -12,7 +12,7 @@
     </ng-template>
     
 
-    <div *ngFor="let item of sessionService.sessions|async">
+    <div *ngFor="let item of sessionService.sessions | async">
         <div *ngIf="item&&!isEdit; else elseChange">
             {{changeToFalse(item)}}
         </div>

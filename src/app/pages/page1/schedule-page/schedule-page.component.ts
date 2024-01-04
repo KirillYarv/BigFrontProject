@@ -89,6 +89,8 @@ export class SchedulePageComponent implements OnInit {
 
     await this.sessionService.getSessions();
     this.getScreenSize();
+
+    
   }
 
   @HostListener('window:resize', ['$event'])
@@ -177,6 +179,12 @@ export class SchedulePageComponent implements OnInit {
     this.scheduleService.schedules.subscribe(r=>{this.schedule = r});
     this.dateGenerate();
 
+    
+    let qtOfDaysFromYear:number = Math.floor((+(new Date())-(+this.stringToDate(this.session.dataStartSemester)))/(1000*60*60*24));
+    
+    const div = document.querySelector('div.schedule')
+    div?.scrollTo({top:0, left:qtOfDaysFromYear*168,behavior: "smooth"})
+
     this.isNonDisable = false;
   }
   changeToTrue()
@@ -231,10 +239,10 @@ export class SchedulePageComponent implements OnInit {
         value.getMonth().toString()===this.stringToDate(index.data).getMonth().toString() && 
 
         ((+time.start.getHours().toString()<hour||
-         +time.start.getHours().toString()==hour&&+time.start.getMinutes().toString()<=minute) &&
+         +time.start.getHours().toString()===hour&&+time.start.getMinutes().toString()<=minute) &&
 
         (+time.end.getHours().toString()>hour|| 
-        +time.end.getHours().toString()==hour&&+time.end.getMinutes().toString()>=minute)))
+        +time.end.getHours().toString()===hour&&+time.end.getMinutes().toString()>=minute)))
         {
           return index;
         }
@@ -243,9 +251,9 @@ export class SchedulePageComponent implements OnInit {
       {
         if (allDataIndex === +index.data && Math.floor(qtOfDaysFromYear/7) %2=== this._week.indexOf(index.week) && sessionStart>0&&
         ((+time.start.getHours().toString()<hour||
-        +time.start.getHours().toString()==hour&&+time.start.getMinutes().toString()<=minute) &&
+        +time.start.getHours().toString()===hour&&+time.start.getMinutes().toString()<=minute) &&
         (+time.end.getHours().toString()>hour|| 
-        +time.end.getHours().toString()==hour&&+time.end.getMinutes().toString()>=minute)))
+        +time.end.getHours().toString()===hour&&+time.end.getMinutes().toString()>=minute)))
         {
           return index;
         }

@@ -5,32 +5,61 @@
 </div>
 <div class="container">
     <mat-nav-list *ngFor="let todo of todoService.todos | async">
-        <div class="list-item">
-            <div class="text-info">
-                <div class="text-section">
-                    <p>{{todo.name}}</p>
-                </div>
-                <hr>
-                <div class="lesson-section">
-                    
-                    <p>
-                        {{todo.lesson}}  
-                    </p>
-                    
-                </div>
-                
-                <div class="data-section">
+        <ng-container *ngIf="stringToInt(todo.data)>=0; else elseDate">
+            
+            <div class="list-item">
+                <div class="text-info">
+                    <div class="text-section">
+                        <p>{{todo.name}}</p>
+                    </div>
                     <hr>
-                    <p>
-                        {{todo.data}}  
-                    </p>
+                    <div class="lesson-section">
+                        <p>
+                            {{todo.lesson}}  
+                        </p>
+                    </div>
+                    
+                    <div class="data-section">
+                        <hr>
+                        <p>
+                            {{todo.data}}  
+                        </p>
+                    </div>
+                </div>
+                <div class="vert-line"></div>
+                <div class="interaction">
+                    <button mat-list-item class="edit-button" (click)="edit(todo)"><mat-icon>edit</mat-icon> </button>
+                    <button mat-list-item class="remove-button" (click)="remove(todo.id)"><mat-icon>delete</mat-icon> </button>
                 </div>
             </div>
-            <div class="vert-line"></div>
-            <div class="interaction">
-                <button mat-list-item class="edit-button" (click)="edit(todo)"><mat-icon>edit</mat-icon> </button>
-                <button mat-list-item class="remove-button" (click)="remove(todo.id)"><mat-icon>delete</mat-icon> </button>
+        </ng-container>
+        <ng-template #elseDate>
+            <div class="list-item-expired">
+                <div class="text-info">
+                    <div class="text-section">
+                        <p>{{todo.name}}</p>
+                    </div>
+                    <hr>
+                    <div class="lesson-section">
+                        <p>
+                            {{todo.lesson}}  
+                        </p>
+                    </div>
+                    
+                    <div class="data-section">
+                        <hr>
+                        <p>
+                            {{todo.data}}  
+                        </p>
+                    </div>
+                </div>
+                <div class="vert-line"></div>
+                <div class="interaction">
+                    <button mat-list-item class="edit-button" (click)="edit(todo)"><mat-icon>edit</mat-icon> </button>
+                    <button mat-list-item class="remove-button" (click)="remove(todo.id)"><mat-icon>delete</mat-icon> </button>
+                </div>
             </div>
-        </div>
+        </ng-template>
     </mat-nav-list>
+    
 </div>

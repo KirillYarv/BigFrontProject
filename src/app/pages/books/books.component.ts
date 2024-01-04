@@ -34,10 +34,6 @@ export class BooksComponent implements OnInit
       this._buttonAddmessege = false;
     }
   }
-  generate()
-  {
-    this.bookService.generate(10);
-  }
   add(): void 
   {
     const dialogRef = this.dialog.open(BookDialogComponent);

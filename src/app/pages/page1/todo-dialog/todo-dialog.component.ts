@@ -67,7 +67,7 @@ export class TodoDialogComponent {
         name: this.name.value,
         lesson:this.lesson.value,
         isCompleted:true,
-        data: this.dataPicker.value
+        data: this.dataTimePipe.transform(this.dataPicker.value)+ " " +this.dataPicker.value[11]+this.dataPicker.value[12]+this.dataPicker.value[13]+this.dataPicker.value[14]+this.dataPicker.value[15]
       }
       this.dialog.close(this.data);    
     }

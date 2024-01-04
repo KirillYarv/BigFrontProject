@@ -1,5 +1,5 @@
 @use '../../../../sass/theme/typography.scss';
-$lesson-block-color: #203329;
+$lesson-block-color: #193316;
 
 .todo-block
 {   
@@ -12,8 +12,9 @@ $lesson-block-color: #203329;
 .add-button{
     margin-block: 8px;
     margin-left: auto;
-    border-radius: 20px;
+    border-radius: 10px !important;
     padding-inline: 8px 8px !important;
+    background-color: #193316;
     height: 42px;
     width: 42px; 
     border: 0; 
@@ -37,6 +38,18 @@ $lesson-block-color: #203329;
     border-left: 1px solid white;
     height: auto;
 }
+.list-item-expired
+{
+    border: 10px;
+    border-radius: 20px;
+    background-color: #545d26;
+    display: flex;
+    flex-direction: row;
+    .data-section
+    {
+        color: rgb(123, 3, 3);
+    }
+}
 .list-item
 {
     border: 10px;
@@ -49,7 +62,7 @@ $lesson-block-color: #203329;
 }
 .mat-mdc-list-item
 {
-    border-radius: 50%;
+    border-radius: 10px;
     padding-inline: 8px 8px !important;
     height: 42px;
     width: 42px; 
