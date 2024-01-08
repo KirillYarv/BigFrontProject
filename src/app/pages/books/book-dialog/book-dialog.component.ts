@@ -37,11 +37,6 @@ export class BookDialogComponent implements OnInit
   {
     return this.bookForm.get("name") as FormControl;
   }
-  // public get countPages():FormControl
-  // {
-  //   return this.bookForm.get("countPages") as FormControl;
-  // }
-
   ngOnInit(): void 
   {
     if (this.data) 
