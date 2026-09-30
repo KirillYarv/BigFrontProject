@@ -5,6 +5,7 @@ import { AuthService } from "./auth/auth.service";
 
 @Component({
   selector: 'app-root',
+  standalone: false,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -26,7 +27,7 @@ export class AppComponent implements OnInit {
     this.getScreenSize();
   }
   
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize')
     getScreenSize() {
       if(window.innerWidth<940)
       {

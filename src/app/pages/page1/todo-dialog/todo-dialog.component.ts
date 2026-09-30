@@ -1,12 +1,13 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import { IToDo } from 'src/app/interfaces/IToDo';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { IToDo } from '../../../interfaces/IToDo';
 import { TodoService } from '../../todo.service';
-import { DataTimePipe } from 'src/app/pipes/data-time.pipe';
+import { DataTimePipe } from '../../../pipes/data-time.pipe';
 
 @Component({
   selector: 'app-todo-dialog',
+  standalone: false,
   templateUrl: './todo-dialog.component.html',
   styleUrls: ['./todo-dialog.component.scss']
 })

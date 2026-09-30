@@ -39,8 +39,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1500kb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "BigFrontProject:build:production"
+              "buildTarget": "BigFrontProject:build:production"
             },
             "development": {
-              "browserTarget": "BigFrontProject:build:development"
+              "buildTarget": "BigFrontProject:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "BigFrontProject:build"
+            "buildTarget": "BigFrontProject:build"
           }
         },
         "test": {

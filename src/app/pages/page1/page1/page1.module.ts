@@ -8,12 +8,8 @@ import { SchedulePageComponent } from '../schedule-page/schedule-page.component'
 import { TodoPageComponent } from '../todo-page/todo-page.component';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from 'src/app/app-routing.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScheduleDialogComponent } from '../schedule-dialog/schedule-dialog.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -25,7 +21,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     TodoDialogComponent,
     ScheduleDialogComponent,
     TodoPageComponent,
-    SchedulePageComponent,
+    SchedulePageComponent
   ],
   imports: [
     HttpClientModule,

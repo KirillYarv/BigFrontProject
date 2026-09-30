@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { LoginModel } from '../models/login.model';
-import { Observable, map, of, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { enviroment } from 'src/enviroments/enviroments';
+import { enviroment } from '../../enviroments/enviroments';
 import { IloginResponse } from '../interfaces/ILoginResponse';
 import { RegisterModel } from '../models/register.model';
 
@@ -15,15 +15,15 @@ export class AuthService {
   private _accessToken: string | null = null;
   private _userName: string | null = null;
 
-  public get isAuth():boolean { return !!this._accessToken; }
+  public get isAuth(): boolean { return !! this._accessToken; }
   
-  public get accessToken():string | null { return this._accessToken; }
-  public get userName():string | null { return this._userName; }
+  public get accessToken(): string | null { return this._accessToken; }
+  public get userName(): string | null { return this._userName; }
 
-  constructor(private router: Router, private httpsClient:HttpClient) 
+  constructor(private router: Router, private httpsClient: HttpClient) 
   { }
 
-  public login(model: LoginModel) : Observable<IloginResponse>
+  public login(model: LoginModel): Observable<IloginResponse>
   {
     let headers = new HttpHeaders({['Content-Type']: 'application/json'});
 
@@ -43,14 +43,16 @@ export class AuthService {
       
     ));
   }
-  public register(model:RegisterModel):Observable<any>
+
+  public register(model:RegisterModel): Observable<any>
   {
     let headers = new HttpHeaders({['Content-Type']: 'application/json'});
 
     return this.httpsClient.post(enviroment.spiUrl + 'auth/register', JSON.stringify(model),
     {headers:headers});
   }
-  private parseTokenToModel()
+
+  private parseTokenToModel(): void
   {
     let arrayofToken = this._accessToken?.split(".")[1] ?? '';
     let JSONString = window.atob(arrayofToken);
@@ -58,7 +60,8 @@ export class AuthService {
 
     this._userName = JSONObject.name + ' <' + JSONObject.email + '>';
   }
-  public loginOut()
+
+  public loginOut(): void
   {
     this._accessToken = null;
     this.router.navigate(['/auth/login']);

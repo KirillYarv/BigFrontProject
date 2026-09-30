@@ -1,8 +1,8 @@
-import { Injectable, OnInit } from '@angular/core';
-import { Observable ,of, tap,map} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable , of, tap } from 'rxjs';
 import { IBook, IBook1 } from '../interfaces/IBook';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { enviroment } from 'src/enviroments/enviroments';
+import { HttpClient } from '@angular/common/http';
+import { enviroment } from '../../enviroments/enviroments';
 import { AuthorPipe } from '../pipes/author.pipe';
 
 @Injectable({
@@ -10,9 +10,9 @@ import { AuthorPipe } from '../pipes/author.pipe';
 })
 export class BookService
 { 
-  private _books :IBook1[]= [];
+  private _books: IBook1[] = [];
 
-  get books() : Observable<IBook1[]>
+  get books(): Observable<IBook1[]>
   {
     return of(this._books);
   }
@@ -24,14 +24,20 @@ export class BookService
   
   public getBooks(): void
   {
-    this.httpClient.get<IBook1[]>(enviroment.spiUrl + 'books/', {}).subscribe(result=>{this._books=result});
+    this.httpClient.get<IBook1[]>(enviroment.spiUrl + 'books/', {}).subscribe(
+      result => { this._books=result }
+    );
   }
   
-  add(book: IBook) : Observable<any>
+  add(book: IBook): Observable<any>
   {
-    let book1 :IBook1={id:book.id, author: this.author.transform(book.author),name:book.name};
+    let book1: IBook1={
+      id: book.id, 
+      author: this.author.transform(book.author),
+      name: book.name
+    };
 
-    return this.httpClient.post<IBook1>(enviroment.spiUrl + 'books/',JSON.stringify(book1))
+    return this.httpClient.post<IBook1>(enviroment.spiUrl + 'books/', JSON.stringify(book1))
     .pipe(
       tap(result => 
       {
@@ -39,31 +45,28 @@ export class BookService
       },
     ));
   }
-  remove(id:number):void
+  remove(id: number): void
   {
     let book: IBook1[] = [];
-    for (let i = 0; i < this._books.length; i++) 
-    {
-      if (this._books[i].id != id) 
-      {
+    for (let i = 0; i < this._books.length; i++) {
+      if (this._books[i].id != id) {
         book.push(this._books[i]);        
       }
     }
     this._books = book;
     
-    this.httpClient.delete<IBook1>(enviroment.spiUrl + 'books/' + id).subscribe(result=>{});
+    this.httpClient.delete<IBook1>(enviroment.spiUrl + 'books/' + id).subscribe(
+      result => {}
+    );
   }
 
-
-  edit(book:IBook):Observable<IBook1>
+  edit(book: IBook): Observable<IBook1>
   {
     let book1 :IBook1={id:book.id, author: this.author.transform(book.author),name:book.name};
     let i = 0;
     
-    for (i = 0; i < this._books.length; i++) 
-    {
-      if (this._books[i].id == book1.id) 
-      {
+    for (i = 0; i < this._books.length; i++) {
+      if (this._books[i].id == book1.id) {
         break;     
       }
     }
@@ -71,6 +74,6 @@ export class BookService
     this._books[i].author = book1.author;
     this._books[i].name = book1.name;
 
-    return this.httpClient.put<IBook1>(enviroment.spiUrl + 'books/' + book1.id,JSON.stringify(book1));
+    return this.httpClient.put<IBook1>(enviroment.spiUrl + 'books/' + book1.id, JSON.stringify(book1));
   }
 }

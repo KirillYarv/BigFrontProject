@@ -1,11 +1,12 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog } from '@angular/material/dialog';
 import { BookDialogComponent } from './book-dialog/book-dialog.component';
-import { IBook, IBook1 } from 'src/app/interfaces/IBook';
+import { IBook, IBook1 } from '../../interfaces/IBook';
 
 @Component({
   selector: 'app-books',
+  standalone: false,
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.scss']
 })
@@ -16,24 +17,23 @@ export class BooksComponent implements OnInit
   }
   private _buttonAddmessege: boolean =false;
   
-  public get buttonAddmessege() : boolean {return this._buttonAddmessege;}
+  public get buttonAddmessege(): boolean { return this._buttonAddmessege; }
   
-  constructor(public bookService: BookService,public dialog: MatDialog)
+  constructor(public bookService: BookService, public dialog: MatDialog)
   {
     this.getScreenSize();
   }
 
-  @HostListener('window:resize', ['$event'])
-  getScreenSize() {
-    if(window.innerWidth<600)
-    {
+  @HostListener('window:resize')
+  getScreenSize(): void
+  {
+    if (window.innerWidth < 600) {
       this._buttonAddmessege = true
-    }
-    else
-    {
+    } else {
       this._buttonAddmessege = false;
     }
   }
+
   add(): void 
   {
     const dialogRef = this.dialog.open(BookDialogComponent);
@@ -44,10 +44,18 @@ export class BooksComponent implements OnInit
       }
     });
   }
-  edit(book1: IBook1)
+
+  edit(book1: IBook1): void
   {
     let authorSplit = book1.author.split(" ");
-    let book :IBook = {id:book1.id, author: {firstName: authorSplit[1], lastName: authorSplit[0]}, name:book1.name};
+    let book :IBook = {
+      id: book1.id, 
+      author: {
+        firstName: authorSplit[1], 
+        lastName: authorSplit[0]
+      }, 
+      name: book1.name
+    };
     
     const dialogRef = this.dialog.open(BookDialogComponent, {
      data:book});
@@ -58,7 +66,8 @@ export class BooksComponent implements OnInit
       }
     });
   }
-  remove(id:number)
+
+  remove(id:number): void
   {
     this.bookService.remove(id);
   }

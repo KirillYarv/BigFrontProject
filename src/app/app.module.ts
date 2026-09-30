@@ -6,12 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //material
-import {MatButtonModule} from '@angular/material/button';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 //new component
 import { Page1Component } from './pages/page1/page1.component';
@@ -20,14 +20,12 @@ import { LoginComponent } from './auth/login/login.component';
 
 
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { DialogModule } from '@angular/cdk/dialog';
 import { AuthorPipe } from './pipes/author.pipe';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './auth/register/register.component';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { Page1Module } from './pages/page1/page1/page1.module';
 import { BookModule } from './pages/books/book/book.module';
-import { ScheduleDialogComponent } from './pages/page1/schedule-dialog/schedule-dialog.component';
 import { DataTimePipe } from './pipes/data-time.pipe';
 
 
@@ -50,7 +48,7 @@ import { DataTimePipe } from './pipes/data-time.pipe';
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-    MatIconModule,
+    MatIconModule,  
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
@@ -60,7 +58,11 @@ import { DataTimePipe } from './pipes/data-time.pipe';
   ],
   providers: 
   [
-    {provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi: true},
+    {
+      provide: HTTP_INTERCEPTORS, 
+      useClass: JwtInterceptor, 
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })
